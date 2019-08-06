@@ -20,6 +20,21 @@ def get_calendars(service):
     return calendars
 
 
+def get_events(service, calendar_id):
+    events_list = []
+    page_token = None
+
+    while True:
+        events = service.events().list(calendarId=calendar_id, pageToken=page_token).execute()
+        for event in events['items']:
+            events_list.append(event)
+        page_token = events.get('nextPageToken')
+        if not page_token:
+            break
+
+    return events_list
+
+
 def insert_event(service, calendar_id, event):
     new_event = service.events().insert(calendarId=calendar_id, body=event).execute()
     return new_event
