@@ -58,8 +58,9 @@ class MusicScraper:
                                       self._num_events,
                                       perf_url))
 
-            event = self._event_from_page(perf_url)
-            gcalendar.insert_event(service, self._calendar['id'], event)
+            events = self._event_from_page(perf_url)
+            for event in events:
+                gcalendar.insert_event(service, self._calendar['id'], event)
 
             self._perf_queue.task_done()
 

@@ -76,7 +76,7 @@ class BSOScraper(common.MusicScraper):
             }
         }
 
-        return event
+        return [event]
 
 
     def _get_performance_urls(self):

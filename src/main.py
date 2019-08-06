@@ -14,10 +14,12 @@ import gcalendar
 
 sys.path.insert(1, 'scrapers/')
 import bso
+import celebseries
 
 
 def main():
-    bso.add_bso()
+    # bso.add_bso()
+    celebseries.add_celebseries()
 
 if __name__ == '__main__':
     main()
