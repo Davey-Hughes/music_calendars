@@ -17,13 +17,7 @@ import bso
 
 
 def main():
-    service = credentials.get_service(
-        '../credentials/credentials.json',
-        '../credentials/token.pickle'
-    )
-
-    calendars = gcalendar.get_calendars(service)
-    bso.add_bso(calendars)
+    bso.add_bso()
 
 if __name__ == '__main__':
     main()
